@@ -1,4 +1,4 @@
-export type BudgetAcitons = {
+export type BudgetActions = {
   type: 'add-budget';
   payload: { budget: number };
 };
@@ -13,7 +13,7 @@ export const initialState: BudgetState = {
 
 export const budgetReducer = (
   state: BudgetState = initialState,
-  action: BudgetAcitons
+  action: BudgetActions
 ) => {
   if (action.type === 'add-budget') {
     return {
