@@ -7,7 +7,7 @@ import {
 } from '../reducers/budget-reducer';
 
 type BudgetContextProps = {
-  state: BudgetState | undefined;
+  state: BudgetState;
   dispatch: React.Dispatch<BudgetActions>;
 };
 
