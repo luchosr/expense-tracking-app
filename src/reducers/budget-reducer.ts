@@ -17,14 +17,14 @@ export type BudgetState = {
   budget: number;
   modal: boolean;
   expenses: Expense[];
-  editingID: Expense['id'];
+  editingId: Expense['id'];
 };
 
 export const initialState: BudgetState = {
   budget: 0,
   modal: false,
   expenses: [],
-  editingID: '',
+  editingId: '',
 };
 
 const createExpense = (draftExpense: DraftExpense): Expense => {
@@ -55,6 +55,7 @@ export const budgetReducer = (
     return {
       ...state,
       modal: false,
+      editingId: '',
     };
   }
 
@@ -79,7 +80,7 @@ export const budgetReducer = (
   if (action.type === 'get-expense-by-id') {
     return {
       ...state,
-      editingID: action.payload.id,
+      editingId: action.payload.id,
       modal: true,
     };
   }
