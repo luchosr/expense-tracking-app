@@ -20,13 +20,13 @@ export default function ExpenseForm() {
   const { dispatch, state } = useBudget();
 
   useEffect(() => {
-    if (state.editingID) {
+    if (state.editingId) {
       const editingExpense = state.expenses.filter(
-        (currentExpense) => currentExpense.id === state.editingID
+        (currentExpense) => currentExpense.id === state.editingId
       )[0];
       setExpense(editingExpense);
     }
-  }, [state.editingID]);
+  }, [state.editingId]);
 
   const handleChangeDate = (value: Value) => {
     setExpense({ ...expense, date: value });
@@ -48,15 +48,14 @@ export default function ExpenseForm() {
       setError('Todos los campos son obligatorios');
       return;
     }
-    if (state.editingID) {
+    if (state.editingId) {
       dispatch({
         type: 'update-expense',
-        payload: { expense: { id: state.editingID, ...expense } },
+        payload: { expense: { id: state.editingId, ...expense } },
       });
     } else {
       dispatch({ type: 'add-expense', payload: { expense } });
     }
-
     setExpense({
       amount: 0,
       expenseName: '',
